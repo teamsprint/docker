@@ -8,8 +8,6 @@
 # (when you start-hadoop.sh)
 N=${1:-3}
 
-SUDO=""
-
 MASTER_CONTAINER=hadoop-master
 SLAVE_CONTAINER=hadoop-slave
 
@@ -19,8 +17,8 @@ TAG=latest
 NETWORK_NAME=hadoop
 
 echo "start $MASTER_CONTAINER container..."
-$SUDO docker rm -f hadoop-master &> /dev/null
-$SUDO docker run -itd \
+sudo docker rm -f hadoop-master &> /dev/null
+sudo docker run -itd \
                 --net=$NETWORK_NAME \
                 -p 50070:50070 \
                 -p 8088:8088 \
@@ -33,8 +31,8 @@ i=1
 while [ $i -lt $N ]
 do
     echo "start ${SLAVE_CONTAINER}$i container..."
-    $SUDO docker rm -f ${SLAVE_CONTAINER}$i &> /dev/null
-    $SUDO docker run -td \
+    sudo docker rm -f ${SLAVE_CONTAINER}$i &> /dev/null
+    sudo docker run -td \
                --net=$NETWORK_NAME \
                --name ${SLAVE_CONTAINER}$i \
                --hostname ${SLAVE_CONTAINER}$i \
@@ -43,5 +41,5 @@ do
 done 
 
 # get into hadoop master container
-docker exec -it $MASTER_CONTAINER /root/resize-cluster.sh $i
-docker exec -it $MASTER_CONTAINER bash
+sudo docker exec -it $MASTER_CONTAINER /root/resize-cluster.sh $i
+sudo docker exec -it $MASTER_CONTAINER bash

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SUDO=""
-
 CONTAINER_NAME=hive-metastore-mysql
 REPO=teamsprint/hive-metastore-mysql
 TAG=latest
@@ -9,8 +7,8 @@ TAG=latest
 NETWORK_NAME=hadoop
 
 echo "start $CONTAINER_NAME container..."
-$SUDO docker rm -f $CONTAINER_NAME &> /dev/null
-$SUDO docker run -d \
+sudo docker rm -f $CONTAINER_NAME &> /dev/null
+sudo docker run -d \
                 -p 3306:3306 \
                 --net=$NETWORK_NAME \
                 --name $CONTAINER_NAME \
@@ -19,7 +17,7 @@ $SUDO docker run -d \
                 $REPO:$TAG &> /dev/null
 
 # get into mysql-metastore container
-$SUDO docker exec -it $CONTAINER_NAME ./create-user.sh
-$SUDO docker exec -it $CONTAINER_NAME bash
+sudo docker exec -it $CONTAINER_NAME ./create-user.sh
+sudo docker exec -it $CONTAINER_NAME bash
 
 #eof
