@@ -2,9 +2,9 @@
 
 echo ""
 
-IMAGE_VERSION=1.5
-REPO=teamsprint/hive-metastore
-TAG=mysql-$IMAGE_VERSION
+IMAGE_VERSION=1.6
+REPO=teamsprint/hive-metastore-mysql
+TAG=$IMAGE_VERSION
 
 echo -e "\nbuild docker hive metastore (mysql) image\n"
 sudo docker build -t $REPO:$TAG .

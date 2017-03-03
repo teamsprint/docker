@@ -1,6 +1,6 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.04
 
-LABEL author "Joo-ho Kim <jooho.kim@sk.com>"
+LABEL author "Joo-ho Kim <teamsprint@gmail.com>"
 
 WORKDIR /root
 

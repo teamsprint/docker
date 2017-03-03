@@ -6,12 +6,13 @@ CONTAINER_NAME=hive-metastore-mysql
 REPO=teamsprint/hive-metastore
 TAG=latest
 
-# start mysql-metastore container
-$SUDO docker rm -f $CONTAINER_NAME &> /dev/null
+NETWORK_NAME=hadoop
+
 echo "start $CONTAINER_NAME container..."
+$SUDO docker rm -f $CONTAINER_NAME &> /dev/null
 $SUDO docker run -d \
                 -p 3306:3306 \
-                --net=hadoop \
+                --net=$NETWORK_NAME \
                 --name $CONTAINER_NAME \
                 --hostname $CONTAINER_NAME \
                 --env MYSQL_ROOT_PASSWORD=root \

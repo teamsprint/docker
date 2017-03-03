@@ -1,6 +1,6 @@
-FROM teamsprint/hadoop:local
+FROM teamsprint/hadoop:1.6
 
-LABEL author "Joo-ho Kim <jooho.kim@sk.com>"
+LABEL author "Joo-ho Kim <teamsprint@gmail.com>"
 
 WORKDIR /root
 
