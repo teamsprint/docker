@@ -9,7 +9,7 @@ MASTER_CONTAINER=hadoop-master
 SLAVE_CONTAINER=hadoop-slave
 
 REPO=teamsprint/hive
-TAG=1.6
+TAG=latest
 
 NETWORK_NAME=hadoop
 

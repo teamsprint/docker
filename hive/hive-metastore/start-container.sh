@@ -3,7 +3,7 @@
 SUDO=""
 
 CONTAINER_NAME=hive-metastore-mysql
-REPO=teamsprint/hive-metastore
+REPO=teamsprint/hive-metastore-mysql
 TAG=latest
 
 NETWORK_NAME=hadoop
