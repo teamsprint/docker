@@ -2,7 +2,7 @@
 
 echo ""
 
-IMAGE_VERSION=1.6
+IMAGE_VERSION=1.7
 
 echo -e "\nbuild docker hadoop image\n"
 sudo docker build -t teamsprint/hadoop:$IMAGE_VERSION .

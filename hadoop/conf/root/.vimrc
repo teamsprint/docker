@@ -1,2 +1,10 @@
 set hls
 set ls=2
+set bs=2
+set et
+set ci
+set si
+set ts=4
+set sw=4
+set tw=300
+set sc

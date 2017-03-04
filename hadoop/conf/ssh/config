@@ -6,4 +6,3 @@ Host 0.0.0.0
   
 Host hadoop-*
    StrictHostKeyChecking no
-   UserKnownHostsFile=/dev/null
