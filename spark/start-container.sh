@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTAINER_NAME=spark-master
+CONTAINER_NAME=hadoop-master
 REPO=teamsprint/spark
 TAG=latest
 
