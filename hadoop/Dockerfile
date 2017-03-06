@@ -33,6 +33,7 @@ RUN mkdir -p ~/hdfs/namenode && \
 
 COPY conf/ssh/* /root/.ssh/
 COPY conf/hadoop/* $HADOOP_CONF_DIR/
+COPY conf/root/* /root/
 
 COPY script/* /root/
 

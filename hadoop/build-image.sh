@@ -3,9 +3,10 @@
 echo ""
 
 IMAGE_VERSION=1.7
+REPO=teamsprint/hadoop
+TAG=$IMAGE_VERSION
 
 echo -e "\nbuild docker hadoop image\n"
-sudo docker build -t teamsprint/hadoop:$IMAGE_VERSION .
-sudo docker tag teamsprint/hadoop:$IMAGE_VERSION teamsprint/hadoop:latest
-
+sudo docker build -t $REPO:$TAG .
+sudo docker tag $REPO:$TAG $REPO:latest 
 echo ""
