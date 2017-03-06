@@ -14,6 +14,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HADOOP_HOME=/opt/hadoop 
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin 
+ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HADOOP_HOME}/lib/native
 
 # install hadoop
 ENV HADOOP_VERSION 2.7.3
@@ -33,6 +34,7 @@ RUN mkdir -p ~/hdfs/namenode && \
 
 COPY conf/ssh/* /root/.ssh/
 COPY conf/hadoop/* $HADOOP_CONF_DIR/
+COPY conf/root/* /root/
 
 COPY script/* /root/
 

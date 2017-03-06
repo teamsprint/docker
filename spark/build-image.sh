@@ -3,10 +3,10 @@
 echo ""
 
 IMAGE_VERSION=1.8
-REPO=teamsprint/hive-metastore-mysql
+REPO=teamsprint/spark
 TAG=$IMAGE_VERSION
 
-echo -e "\nbuild docker hive metastore (mysql) image\n"
+echo -e "\nbuild docker spark image\n"
 sudo docker build -t $REPO:$TAG .
 sudo docker tag $REPO:$TAG $REPO:latest
 

@@ -2,12 +2,12 @@
 
 echo ""
 
-IMAGE_VERSION=1.7
+IMAGE_VERSION=1.8
 REPO=teamsprint/hive
 TAG=$IMAGE_VERSION
 
 echo -e "\nbuild docker hive image\n"
 sudo docker build -t $REPO:$TAG .
-sudo docker tag $REPO:$TAG teamsprint/hive:latest
+sudo docker tag $REPO:$TAG $REPO:latest
 
 echo ""
