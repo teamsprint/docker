@@ -6,7 +6,7 @@ TAG=latest
 
 NETWORK_NAME=hadoop
 
-echo "start $CONTAINER_NAME} container..."
+echo "start $CONTAINER_NAME container..."
 sudo docker rm -f $CONTAINER_NAME &> /dev/null
 sudo docker run -id \
                 -p 7077:7077 \
