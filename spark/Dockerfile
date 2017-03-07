@@ -19,8 +19,15 @@ RUN mkdir -p ${SPARK_BASE} && \
     rm -f ${SPARK_BINNAME}.tgz && \
     echo Spark ${SPARK_VERSION} installed in ${SPARK_HOME}
 
-COPY spark-defaults.conf ${SPARK_HOME}/conf/spark-defaults.conf
+#COPY spark-defaults.conf ${SPARK_HOME}/conf/spark-defaults.conf
 COPY common.sh spark-master spark-worker /
+
+ENV CLASSPATH=$CLASSPATH:$SPARK_HOME/jars/*
+
+ENV TPCDS_WORKLOAD_GEN_BASE=/opt
+ENV TPCDS_WORKLOAD_GEN=${TPCDS_WORKLOAD_GEN_BASE}/tpcds
+
+ADD tpcds.tar.gz $TPCDS_WORKLOAD_GEN_BASE
 
 EXPOSE 8080 7077
 
