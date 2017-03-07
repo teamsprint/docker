@@ -7,12 +7,12 @@ This may also be helpful to build a virtual cluster environment like kubernetes.
 Instruction
 -----------
 * Add a network to the docker runtime
-  * `sudo docker network create **\<network-name\>**`
+  * `sudo docker network create <network-name>`
 
 * Build image
   * `cd hadoop` (or hive, spark, etc.)
   * `./build-image.sh`
-  * `./start-cluster.sh **\<node-count\>** **\<hostname-prefix\>** **\<network-name\>**`
+  * `./start-cluster.sh <node-count> <hostname-prefix> <network-name>`
 
 Result You Get
 --------------
