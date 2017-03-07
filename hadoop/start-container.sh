@@ -7,24 +7,24 @@
 # having to many slaves in advance will lead to seeing more warning messages
 # (when you start-hadoop.sh)
 N=${1:-3}
+PREFIX=${2:-hadoop}
+NETWORK_NAME=${3:-hadoop}
 
-MASTER_CONTAINER=hadoop-master
-SLAVE_CONTAINER=hadoop-slave
+MASTER_CONTAINER=${PREFIX}-master
+SLAVE_CONTAINER=${PREFIX}-slave
 
 REPO=teamsprint/hadoop
 TAG=latest
 
-NETWORK_NAME=hadoop
-
 echo "start $MASTER_CONTAINER container..."
-sudo docker rm -f hadoop-master &> /dev/null
-sudo docker run -itd \
+sudo docker rm -f $MASTER_CONTAINER &> /dev/null
+sudo docker run -id \
                 --net=$NETWORK_NAME \
                 -p 50070:50070 \
                 -p 8088:8088 \
                 --name $MASTER_CONTAINER \
                 --hostname $MASTER_CONTAINER \
-                $REPO:$TAG &> /dev/null
+                $REPO:$TAG $N $PREFIX &> /dev/null
 
 # start slave containers
 i=1
@@ -32,14 +32,14 @@ while [ $i -lt $N ]
 do
     echo "start ${SLAVE_CONTAINER}$i container..."
     sudo docker rm -f ${SLAVE_CONTAINER}$i &> /dev/null
-    sudo docker run -td \
+    sudo docker run -id \
                --net=$NETWORK_NAME \
                --name ${SLAVE_CONTAINER}$i \
                --hostname ${SLAVE_CONTAINER}$i \
-               $REPO:$TAG &> /dev/null
+               $REPO:$TAG $N $PREFIX &> /dev/null
     i=$(( $i + 1 ))
 done 
 
-# get into hadoop master container
-sudo docker exec -it $MASTER_CONTAINER /root/resize-cluster.sh $i
+# get into master container
+#sudo docker exec -it $MASTER_CONTAINER /root/resize-cluster.sh $i
 sudo docker exec -it $MASTER_CONTAINER bash

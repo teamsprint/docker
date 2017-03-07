@@ -37,6 +37,8 @@ COPY conf/hadoop/* $HADOOP_CONF_DIR/
 COPY conf/root/* /root/
 
 COPY script/* /root/
+COPY script/bootstrap.sh /etc/
 
-CMD [ "sh", "-c", "service ssh start; bash"]
+ENTRYPOINT [ "/etc/bootstrap.sh" ]
+CMD [ "1", "hadoop" ]
 

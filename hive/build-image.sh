@@ -2,7 +2,7 @@
 
 echo ""
 
-IMAGE_VERSION=1.8
+IMAGE_VERSION=1.9
 REPO=teamsprint/hive
 TAG=$IMAGE_VERSION
 
