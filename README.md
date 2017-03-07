@@ -31,5 +31,5 @@ Result You Get
 
 Note
 ----
-* `To-be architecture (micro-service?) has not been settled yet.
+* To-be architecture (micro-service?) has not been settled yet.
   * Hive, spark, etc. could include hadoop in itself for a while.
