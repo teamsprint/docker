@@ -18,7 +18,7 @@ ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HADOOP_HOME}/lib/native
 
 # install hadoop
 ENV HADOOP_VERSION 2.7.3
-RUN wget http://mirror.apache-kr.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz && \
+RUN wget http://apache.tt.co.kr/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz && \
     tar zxf hadoop-${HADOOP_VERSION}.tar.gz && \
     rm -rf hadoop-${HADOOP_VERSION}/share/doc && \
     mv hadoop-${HADOOP_VERSION} $HADOOP_HOME && \
